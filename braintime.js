@@ -1,3 +1,8 @@
+var timeStamps = []; // timestamps of click events. the first timestamp is the timestamp of the load event.
+
+window.addEventListener('load', function(e){
+    timeStamps.push(e.timeStamp);
+});
 
 var tiles = document.getElementsByClassName("tile");
 tiles.forEach = Array.prototype.forEach; // why isnt `forEach` already defined on this object
@@ -25,7 +30,6 @@ function generateTileNumbers(){
     return numbers;
 }
 
-
 function updateTiles() {
     // new numbers
     numbers = generateTileNumbers();
@@ -38,16 +42,18 @@ function updateTiles() {
 function processSelection(e) {
     var selectedNumber = parseInt(e.target.innerHTML);
     var numbers = getNumbers();
-    var isCorrect = (selectedNumber == max(numbers))
+    var isCorrect = (selectedNumber == max(numbers));
+
+    timeStamps.push(e.timeStamp);
 
     if(isCorrect){
         document.getElementById('status').innerHTML = "Correct!";
     } else {
         document.getElementById('status').innerHTML = "Wrong!";
     }
-    console.log(selectedNumber);
 
     updateTiles();
+    console.log(timeStamps);
 }
 
 
