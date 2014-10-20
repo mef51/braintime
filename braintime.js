@@ -53,7 +53,16 @@ function processSelection(e) {
     }
 
     updateTiles();
-    console.log(timeStamps);
+    durations = computeDurations(timeStamps);
+    console.log(durations[durations.length - 1], isCorrect);
+}
+
+function computeDurations(times){
+    var durations = [];
+    for(var i = 1; i < times.length; i++){
+        durations.push(times[i] - times[i-1]);
+    }
+    return durations;
 }
 
 
