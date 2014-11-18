@@ -18,6 +18,16 @@ body {
     padding: 20px;
 }
 
+.column {
+    display: block;
+    float: left;
+}
+
+.grid {
+    width: 200px;
+    margin: 0 auto;
+}
+
 .tile {
     cursor: pointer;
     margin: 0 auto;
