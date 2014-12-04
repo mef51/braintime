@@ -4,7 +4,8 @@ window.addEventListener('load', function(e){
     timeStamps.push(e.timeStamp);
 });
 
-var tiles = document.getElementsByClassName("tile");
+var gameTilesSelector = "game tile"; // these are class names
+var tiles = document.getElementsByClassName(gameTilesSelector);
 tiles.forEach = Array.prototype.forEach; // why isnt `forEach` already defined on this object
 tiles.forEach(function(tile, i){
     tile.addEventListener("click", processSelection);
