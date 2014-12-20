@@ -6,28 +6,41 @@
 <body>
 	<div class="page">
 
+
 	</div>
 </body>
 <script class="template" id="greeter" type="text/html">
     <div class="grid">
         <p>Pick how long you want to play the game:</p>
-        <div class="tile">1 Minute</div>
-        <div class="tile">5 Minutes</div>
-        <div class="tile">10 Minutes</div>
+        <form action="/start/" method="post">
+            <label for="opt1" class="timetile tile">
+                <input id="opt1" type="radio" name="timeopt" value="1"/>
+                1 Minute
+            </label>
+            <label for="opt2" class="timetile tile">
+                <input id="opt2" type="radio" name="timeopt" value="5"/>
+                5 Minutes
+            </label>
+            <label for="opt3" class="timetile tile">
+                <input id="opt3" type="radio" name="timeopt" value="10"/>
+                10 Minutes
+            </label>
+            <input type="submit" />
+        </form>
     </div>
 </script>
 <script class="template" id="game" type="text/html">
-	<div class="grid">
-		<div class="column">
-			<div class="game tile noselect">123</div>
-			<div class="game tile noselect">321</div>
-		</div>
-		<div class="column">
-			<div class="game tile noselect">412</div>
-			<div class="game tile noselect">592</div>
-		</div>
-	</div>
-	<div id="status"></div>
+    <div class="grid">
+        <div class="column">
+            <button class="game tile noselect">123</button>
+            <button class="game tile noselect">321</button>
+        </div>
+        <div class="column">
+            <button class="game tile noselect">412</button>
+            <button class="game tile noselect">592</button>
+        </div>
+    </div>
+    <div id="status"></div>
 </script>
 <script src="js/templater.js"></script>
 <script src="js/braintime.js"></script>

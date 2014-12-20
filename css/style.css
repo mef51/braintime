@@ -24,17 +24,23 @@ body {
 }
 
 .grid {
-    width: 200px;
+    width: 300px;
     margin: 0 auto;
 }
 
 .tile {
     cursor: pointer;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
-    width: 50px;
+    /*margin: 0 auto;*/
+    padding: 20px 0px;
+    width: 75px;
     border: 1px solid black;
+    font-size: 25px;
+}
+
+.timetile {
+    font-size: 15px;
+    font-weight: bold;
+    width: 80px;
 }
 
 .tile:hover {
