@@ -1,16 +1,24 @@
 // namespace for other scripts to use
 var Templates = window.Templates = window.Templates || {};
-var targetSelector = 'page';
-var targetDiv = document.getElementsByClassName(targetSelector)[0];
+var targetDiv = document.querySelector('.page');
 
-var templates = document.getElementsByClassName("template");
+// load and store the templates
+var templateIds = ["greeter", "game", "notfound"];
+for(var i = 0; i < templateIds.length; i++){
+    Templates[templateIds[i]] = document.getElementById(templateIds[i]).innerHTML;
+}
 
 page('/', function(){
-	targetDiv.innerHTML = templates[0].text;
+	targetDiv.innerHTML = Templates["greeter"];
 });
 
-page('/start', function(something){
-	console.log(something);
+page('/play/:duration', function(ctx){
+	console.log(ctx.params.duration);
+});
+
+page('*', function(ctx){
+    console.log(ctx);
+    targetDiv.innerHTML = Templates["notfound"];
 });
 
 page();
