@@ -8,12 +8,15 @@ for(var i = 0; i < templateIds.length; i++){
     Templates[templateIds[i]] = document.getElementById(templateIds[i]).innerHTML;
 }
 
+// Routes
 page('/', function(){
 	targetDiv.innerHTML = Templates["greeter"];
 });
 
 page('/play/:duration', function(ctx){
 	console.log(ctx.params.duration);
+    targetDiv.innerHTML = Templates["game"];
+    Braintime.initialize();
 });
 
 page('*', function(ctx){
