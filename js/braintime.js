@@ -38,27 +38,14 @@ Braintime.getNumbers = function(){
 */
 Braintime.generateTileNumbers = function(){
 	var numbers = [];
-	console.log("==========");
-	numbers = [].map.call(Braintime.tiles, function(e){
-		return Utils.getRandomInt(100, 104);
-	});
-
-	// make sure there's no duplicates...
-	numbers.filter(function(val, i, arr){
-		console.log(val, i, arr);
-		var count = -1;
-		while(count < 0 || count > 1){
-			count = 0;
-			for(var k = 0; k < arr.length; k++){
-				if(arr[k] == val)
-					count++;
-			}
-			if(count > 1){
-				this[i] = Utils.getRandomInt(100, 104)
-			}
+	for(var i = 0; i < Braintime.tiles.length; i++){
+		var newVal = Utils.getRandomInt(100, 1000);
+		// make sure there's no duplicates
+		while(numbers.indexOf(newVal) != -1){
+			newVal = Utils.getRandomInt(100, 1000);
 		}
-	}, numbers);
-	console.log("==========");
+		numbers.push(newVal);
+	}
 	return numbers;
 }
 
