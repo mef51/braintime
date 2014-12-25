@@ -22,8 +22,6 @@ Utils.computeDurations = function(times){
 
 /*******************************/
 
-Braintime.timeStamps = []; // timestamps of click events. the first timestamp is the timestamp of the load event.
-
 /** Grabs the numbers on the tiles and returns them **/
 Braintime.getNumbers = function(){
 	var numbers = [];
@@ -86,7 +84,8 @@ Braintime.processSelection = function(e) {
 * Setup the game
 */
 Braintime.initialize = function(duration){
-	Braintime.timeStamps.push(Date.now());
+	// timestamps of click events. the first timestamp is the timestamp of the load event.
+	Braintime.timeStamps = [Date.now()];
 
 	var gameTilesSelector = "game tile"; // these are class names
 	Braintime.tiles = document.getElementsByClassName(gameTilesSelector);
